@@ -24,7 +24,7 @@ const PostNew = React.createClass({
 
   render() {
     return (
-      <Index>
+      <Index {...this.props}>
         <Grid>
           <Row>
             <Col xs={12}>

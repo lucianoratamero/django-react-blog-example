@@ -6,8 +6,6 @@ import {
   Grid,
   Row,
   Col,
-  ListGroup,
-  ListGroupItem,
   PageHeader
 } from 'react-bootstrap';
 
@@ -26,16 +24,11 @@ const PostsList = React.createClass({
         <Grid>
           <Row>
             <Col xs={12}>
-              {this.props.posts.get('errors') ? (
-                <ListGroup>
-                  <ListGroupItem bsStyle="danger">{this.props.posts.get('errors')}</ListGroupItem>
-                </ListGroup>
-              ) : ''}
               <PageHeader>Posts</PageHeader>
               {this.props.posts.get('allPosts') ?
-                (this.props.posts.get('allPosts').map((post) =>
+                (this.props.posts.get('allPosts').map((post, i) =>
                   (
-                    <div>
+                    <div key={i}>
                       <h2>
                           { post.title }
                           <br/>
@@ -43,7 +36,18 @@ const PostsList = React.createClass({
                               publicado por { post.author.username } em  { post.published_date }
                           </small>
                       </h2>
-                      <p style={{margin: "1.4em 0"}}>{ post.text }</p>
+                      <p style={{margin: "1.4em 0"}}>
+                        {post.text.split('\n').map(function(item, key) {
+                            return (
+                              <span key={key}>
+                                {item}
+                                <br/>
+                              </span>
+                            )
+                          })
+                        }
+                      </p>
+                      <hr/>
                     </div>
                     )
                   )

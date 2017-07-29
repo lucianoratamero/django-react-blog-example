@@ -3,6 +3,11 @@ import {
   Nav,
   Navbar,
   NavItem,
+  Grid,
+  Row,
+  Col,
+  ListGroup,
+  ListGroupItem,
 } from 'react-bootstrap';
 
 export const Index = React.createClass({
@@ -20,6 +25,13 @@ export const Index = React.createClass({
           <NavItem href="/post/new">Adicionar Post</NavItem>
         </Nav>
       </Navbar>
+      {this.props.posts.get('errors') ? (
+        <Grid><Row><Col xs={12}>
+        <ListGroup>
+          <ListGroupItem bsStyle="danger">{this.props.posts.get('errors')}</ListGroupItem>
+        </ListGroup>
+        </Col></Row></Grid>
+      ) : ''}
       {this.props.children}
       </div>
     );

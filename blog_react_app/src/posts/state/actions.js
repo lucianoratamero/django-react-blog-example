@@ -40,7 +40,7 @@ export const savePost = (formData) => {
   const init = {
     method: 'POST',
     headers,
-    formData
+    body: formData
   };
 
   return {

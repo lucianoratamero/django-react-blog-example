@@ -1,7 +1,6 @@
 /*eslint no-undef: 0*/
 
 import { fromJS } from 'immutable';
-import { push } from 'react-router-redux';
 import { createReducer } from '../../helpers/store';
 import { PostsActionTypes } from './actions';
 
@@ -21,13 +20,16 @@ export const handlePostsSuccess = (state, action) => {
     return handlePostsFailure(state, { error: action.data });
   }
 
-  return state
+  state = state
     .set('errors', '')
-    .set('allPosts', action.data);
+    .set('allPosts', action.response.data.posts)
+
+    console.log(state)
+
+  return state;
 }
 
 export const handleSavePostFailure = (state, action) => {
-  action.asyncDispatch(push('/'));
   return state.set('errors', 'Mal aí, não rolou de salvar seu post.' );
 }
 
