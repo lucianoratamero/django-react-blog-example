@@ -1,6 +1,7 @@
 /*eslint no-undef: 0*/
 
 import { fromJS } from 'immutable';
+import { push } from 'react-router-redux';
 import { createReducer } from '../../helpers/store';
 import { PostsActionTypes } from './actions';
 
@@ -39,6 +40,7 @@ export const handleSavePostSuccess = (state, action) => {
     return handleSavePostFailure(state, { error: action.data });
   }
 
+  action.asyncDispatch(push('/'));
   return state;
 }
 
