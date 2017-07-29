@@ -1,0 +1,7 @@
+node_modules
+pip-selfcheck.json
+*.pyc
+bin
+lib
+include
+share
