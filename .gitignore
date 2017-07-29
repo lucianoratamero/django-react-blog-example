@@ -1,8 +1,9 @@
+.env
+
 yarn.lock
 dist
 *.log
 .DS_Store
-.env
 *.ruby-version
 *.sass-cache
 *.sqlite3

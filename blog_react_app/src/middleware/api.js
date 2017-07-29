@@ -1,11 +1,5 @@
 /*eslint consistent-return: 0*/
 
-/**
- *
- * @param {function} dispatch
- * @param {function} getState
- * @returns {Promise}
- */
 export default function apiMiddleware({ dispatch, getState }) {
   return next => action => {
     const {

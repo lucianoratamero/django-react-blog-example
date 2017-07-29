@@ -4,6 +4,8 @@
   "description": "app base pro blog maneiro",
   "main": "src/main.js",
   "scripts": {
+    "cowsay": "./cowsay.sh",
+    "sl": "sl",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
