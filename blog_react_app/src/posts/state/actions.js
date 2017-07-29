@@ -13,12 +13,8 @@ export const PostsActionTypes = {
 
 export const getPosts = () => {
 
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
   const init = {
     method: 'GET',
-    headers
   };
 
   return {

@@ -5,6 +5,8 @@ import { push } from 'react-router-redux';
 import { createReducer } from '../../helpers/store';
 import { PostsActionTypes } from './actions';
 
+const initialState = fromJS({});
+
 export const handlePostsRequest = (state, action) => {
   return state
     .set('errors', '');
@@ -23,7 +25,7 @@ export const handlePostsSuccess = (state, action) => {
 
   state = state
     .set('errors', '')
-    .set('allPosts', action.response.data.posts)
+    .set('allPosts', fromJS(action.response.data.posts))
 
     console.log(state)
 
@@ -44,7 +46,7 @@ export const handleSavePostSuccess = (state, action) => {
   return state;
 }
 
-export const postsReducer = createReducer(fromJS({}), {
+export const postsReducer = createReducer(initialState, {
   [PostsActionTypes.POSTS_REQUEST]: handlePostsRequest,
   [PostsActionTypes.POSTS_SUCCESS]: handlePostsSuccess,
   [PostsActionTypes.POSTS_FAILURE]: handlePostsFailure,

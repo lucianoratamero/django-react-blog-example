@@ -26,7 +26,7 @@ const PostsList = React.createClass({
             <Col xs={12}>
               <PageHeader>Posts</PageHeader>
               {this.props.posts.get('allPosts') ?
-                (this.props.posts.get('allPosts').map((post, i) =>
+                (this.props.posts.get('allPosts').toJS().map((post, i) =>
                   (
                     <div key={i}>
                       <h2>
