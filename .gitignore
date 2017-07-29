@@ -1,3 +1,9 @@
+dist
+*.log
+.DS_Store
+.env
+*.ruby-version
+*.sass-cache
 *.sqlite3
 node_modules
 pip-selfcheck.json
